@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.2.6'
+# gem 'rails', '4.2.6'
+gem 'rails', '5.0.3'
 gem 'sqlite3'
 gem 'haml-rails'
 gem 'erb2haml'
