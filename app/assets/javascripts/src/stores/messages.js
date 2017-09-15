@@ -95,9 +95,9 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
   switch (action.type) {
     case 'updateOpenChatID':
       openChatID = action.userID
+      messages[openChatID].lastAccess.currentUser = +new Date()
       MessagesStore.emitChange() // emitChangeメソッドはBaseStoreにある
       break
-
 
     case 'sendMessage':
       const userID = action.userID
@@ -106,6 +106,7 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
         timestamp: action.timestamp,
         from: UserStore.user.id,
       })
+      messages[userID].lastAccess.currentUser = +new Date()
       MessagesStore.emitChange()
       break
   }
