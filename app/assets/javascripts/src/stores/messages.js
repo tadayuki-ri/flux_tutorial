@@ -93,13 +93,13 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
   const action = payload.action
 
   switch (action.type) {
-    case 'updateOpenChatID':
+    case ActionTypes.UPDATE_OPEN_CHAT_ID:
       openChatID = action.userID
       messages[openChatID].lastAccess.currentUser = +new Date()
       MessagesStore.emitChange() // emitChangeメソッドはBaseStoreにある
       break
 
-    case 'sendMessage':
+    case ActionTypes.SEND_MESSAGE:
       const userID = action.userID
       messages[userID].messages.push({
         contents: action.message,
